@@ -26,6 +26,7 @@ class BuzzBlogSession(ATLoad.Session):
     self._my_likes = []
     self._other_account = None
     self._other_post = None
+    self._keywords = []
 
   def _request(self, method, path, params=None, json=None):
     auth = HTTPBasicAuth(self._my_account["username"], self._password) \
@@ -150,6 +151,11 @@ class BuzzBlogSession(ATLoad.Session):
       self._request("get", "/like",
           params={"account_id": self._other_account["id"]})
 
+  def retrieve_recommendation(self):
+    if self._other_account:
+      random_keyword = random.choice(self._keywords)
+      address = "/recommendation/" + random_keyword
+      self._request("get", address)
 
 if __name__ == "__main__":
   # Parse command-line arguments.
