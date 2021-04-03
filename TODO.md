@@ -1,17 +1,28 @@
 ## TODO
 1. Check `analysis/notebooks/BuzzBlogExperimentAnalysis.ipynb`
 
-2. Upload container images to docker registery
+2. <s>Upload container images to docker registery</s> \
+`quyuyi/buzzblog:apigateway_v0.1`, `quyuyi/buzzblog:recommendation_v0.1`
 
-3. Change `controller/conf/workload.yml`
+3. <s>Change `controller/conf/workload.yml`</s>
 
-4. Change docker parameters in `controller/conf/system.yml`
+4. <s>Change docker parameters in `controller/conf/system.yml`</s> \
+- node0
+    - containers: loadgen
+    - monitors: collectl
+- node1
+    - containers: loadbalancer, apigateway
+    - monitors: collectl, tcplife-bpfcc, radvisor
+- node2
+    - containers: recommendation_service
+    - monitors: collectl, tcplife-bpfcc, radvisor
+- node3:
+    - containers: recommendation_database
+    - monitors: collectl, tcplife-bpfcc, radvisor
 
-5. Add function to start recommendation service and database in `controller/conf/src/run_experiment.py`
+5. <s>Add function for requesting recommendation service in `loadgen/loadgen.py`</s>
 
-6. Add function for requesting recommendation service in `loadgen/loadgen.py`
-
-7. Use the tutorial topology or create our own topology?
+6. Use the tutorial topology or create our own topology?
 
 
 
