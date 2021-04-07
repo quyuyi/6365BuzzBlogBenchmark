@@ -20,18 +20,18 @@ RUN apt-get update \
     gnupg2 \
     python3-pip
 
-# Add PostgreSQL repository.
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-  && echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list \
-  && apt-get update
+# # Add PostgreSQL repository.
+# RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+#   && echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list \
+#   && apt-get update
 
-# Install PostgreSQL client 13.
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-client-13
+# # Install PostgreSQL client 13.
+# RUN DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-client-13
 
 # Download BuzzBlog.
-RUN wget --quiet -O /var/tmp/BuzzBlogApp.zip https://github.com/rodrigoalveslima/BuzzBlogApp/archive/main.zip \
+RUN wget --quiet -O /var/tmp/BuzzBlogApp.zip https://github.com/quyuyi/6365BuzzBlogApp/archive/main.zip \
   && unzip -d /opt /var/tmp/BuzzBlogApp.zip \
-  && mv /opt/BuzzBlogApp-main /opt/BuzzBlogApp
+  && mv /opt/6365BuzzBlogApp-main /opt/BuzzBlogApp
 
 # Copy source code.
 COPY src /usr/local/src/BuzzBlogBenchmark

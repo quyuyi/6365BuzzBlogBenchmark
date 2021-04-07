@@ -8,7 +8,7 @@
     key_filename: "/home/{{username}}/.ssh/id_rsa"
   containers:
     loadgen:
-      image: "rodrigoalveslima/buzzblog:loadgen_v0.1"
+      image: "quyuyi/buzzblog:loadgen_v0.1"
       logs:
         - "/var/log/loadgen.log"
       options:
@@ -201,7 +201,7 @@
     net.core.somaxconn: 128
   containers:
     recommendation_database:
-      image: "mongo:4.4.4-bionic -c max_connections=128"
+      image: "quyuyi/buzzblog:database_v0.1 -c max_connections=128"
       options:
         name: "recommendation_database"
         publish: "5436:27017"
