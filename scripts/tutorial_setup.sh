@@ -49,9 +49,9 @@ ssh -o StrictHostKeyChecking=no ${username}@${node_0} "
 
   # Clone this repository to get the experiment configuration files.
   ssh-keygen -F github.com || ssh-keyscan github.com >> ~/.ssh/known_hosts
-  git clone git@github.com:rodrigoalveslima/BuzzBlogBenchmark.git
-  mv BuzzBlogBenchmark/controller/conf/* .
-  rm -rf BuzzBlogBenchmark
+  git clone git@github.com:quyuyi/6365BuzzBlogBenchmark.git
+  mv 6365BuzzBlogBenchmark/controller/conf/* .
+  rm -rf 6365BuzzBlogBenchmark
 
   # Replace variables in system.yml.
   sed -i \"s/{{username}}/${username}/g\" system.yml

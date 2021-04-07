@@ -1,6 +1,9 @@
+## Debug
+- `6365BuzzBlogApp/app/apigateway/src/apigateway.py` go wrong if only recommendation service appears in `backend.yml`, which is constructed from `system.yml`. Need either add all services and databases back to `system.yml`, or comment out reading other services in `apigateway.py`.
+
 ## TODO
-1. Update Dockerfile for `controller/` and `loadgen`
-Download BuzzBlogApp from our modified version.
+1. <s>Update Dockerfile for `controller/` and `loadgen`
+Download BuzzBlogApp from our modified version.</s>
 
 2. <s>Upload container images to docker registery</s> \
 Build image for controller, loadgen, apigateway, recommendation service
@@ -76,7 +79,7 @@ sudo docker run \
 From local,
 ```bash
 # use our own workload.yml and system.yml instead of the ones pulled by tutorial_setup.sh
-scp ../controller/conf/* ssh quyuyi@apt132.apt.emulab.net:~
+scp ./controller/conf/* quyuyi@apt132.apt.emulab.net:~
 ```
 
 
@@ -87,4 +90,10 @@ scp ../controller/conf/* ssh quyuyi@apt132.apt.emulab.net:~
     - bpfcc: toolkit for efficient kernel tracing and manipulation programs
     - collectl: collect performance data
     - radvisor
+3. In `controller/conf/system.yml`, what does `-c max_connections=128` mean?
+```
+xxx_database:
+    image: "postgres:13.1 -c max_connections=128"
+    options: ...
+```
 

@@ -150,7 +150,7 @@
     recommendation_service:
       image: "quyuyi/buzzblog:recommendation_v0.1"
       options:
-        name: "account_service"
+        name: "recommendation_service"
         publish: "9096:9096"
         volume: "/etc/opt/BuzzBlogApp:/etc/opt/BuzzBlogApp"
         detach: ""
@@ -201,7 +201,7 @@
     net.core.somaxconn: 128
   containers:
     recommendation_database:
-      image: "quyuyi/buzzblog:database_v0.1 -c max_connections=128"
+      image: "quyuyi/buzzblog:database_v0.1"
       options:
         name: "recommendation_database"
         publish: "5436:27017"

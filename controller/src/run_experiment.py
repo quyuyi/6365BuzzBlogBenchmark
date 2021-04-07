@@ -257,21 +257,6 @@ def setup_databases(node_hostname, node_conf, ssh_client):
           "/opt/BuzzBlogApp/app/{service}/database/{service}_schema.sql".\
               format(service=container_name.split('_')[0])), shell=True)
 
-
-###############################################################################
-
-@nodes_with_container(".+_database")
-def setup_mongodb_databases(node_hostname, node_conf, ssh_client):
-  for container_name in node_conf["containers"]:
-    if re.match(".+_database", container_name):
-      subprocess.run("mongo localhost:%s %s" %
-      node_conf["containers"][container_name]["options"]["publish"].split(':')[0],
-      "/opt/BuzzBlogApp/app/{service}/database/recommendation.js".\
-              format(service=container_name.split('_')[0]), shell=True)
-
-###############################################################################
-
-
 @nodes_with_container(".+_service")
 def start_services(node_hostname, node_conf, ssh_client):
   for container_name in node_conf["containers"]:

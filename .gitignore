@@ -3,3 +3,5 @@
 .env
 
 test_logs.md
+data/*
+!data/*.tar.gz
