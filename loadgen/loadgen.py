@@ -152,10 +152,9 @@ class BuzzBlogSession(ATLoad.Session):
           params={"account_id": self._other_account["id"]})
 
   def retrieve_recommendation(self):
-    if self._other_account:
-      random_keyword = random.choice(self._keywords)
-      address = "/recommendation/" + random_keyword
-      self._request("get", address)
+    random_keyword = random.choice(self._keywords)
+    address = "/recommendation/" + random_keyword
+    self._request("get", address)
 
 if __name__ == "__main__":
   # Parse command-line arguments.
