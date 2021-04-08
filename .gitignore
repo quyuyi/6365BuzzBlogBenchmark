@@ -4,4 +4,4 @@
 
 test_logs.md
 data/*
-!data/*.tar.gz
+# !data/*.tar.gz
