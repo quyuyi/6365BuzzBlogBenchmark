@@ -249,6 +249,8 @@ def start_databases(node_hostname, node_conf, ssh_client):
 @nodes_with_container(".+_database")
 def setup_databases(node_hostname, node_conf, ssh_client):
   for container_name in node_conf["containers"]:
+    if container_name == "recommendation_database":
+      continue
     if re.match(".+_database", container_name):
       subprocess.run("psql -U postgres -h %s -p %s -f %s" % (
           node_hostname,
@@ -341,7 +343,7 @@ def run():
   generate_backend_configuration_file()
   start_databases()
   time.sleep(24)
-  # setup_databases()
+  setup_databases()
   start_services()
   start_apigateway()
   start_loadbalancer()
