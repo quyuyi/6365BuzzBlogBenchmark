@@ -16,7 +16,7 @@ docker tag <IMAGE ID> quyuyi/buzzblog:benchmarkcontroller_v0.1
 docker push quyuyi/buzzblog:benchmarkcontroller_v0.1
 
 # build from container
-docker commit <container name: recommendation_database>
+docker commit <CONTAINER ID>
 docker images
 docker tag <IMAGE ID> quyuyi/buzzblog:database_v0.1
 docker push quyuyi/buzzblog:database_v0.1
@@ -58,15 +58,15 @@ In local machine,
 ./tutorial_setup.sh \
     --username quyuyi \
     --private_ssh_key_path ~/.ssh/cloudlab \
-    --node_0 apt132.apt.emulab.net \
-    --node_1 apt136.apt.emulab.net \
-    --node_2 apt130.apt.emulab.net \
-    --node_3 apt131.apt.emulab.net
+    --node_0 apt171.apt.emulab.net \
+    --node_1 apt169.apt.emulab.net \
+    --node_2 apt184.apt.emulab.net \
+    --node_3 apt188.apt.emulab.net
 ```
 
 SSH to node-0,
 ```bash
-ssh quyuyi@apt132.apt.emulab.net
+ssh quyuyi@apt171.apt.emulab.net
 
 sudo docker run \
     --env description="My first BuzzBlog experiment." \
