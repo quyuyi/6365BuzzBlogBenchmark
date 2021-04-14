@@ -3,6 +3,8 @@
 
 2. Use the tutorial topology or create our own topology?
 
+3. Add variety of requests to recommendation microservice
+
 
 ## Done
 1. Update Dockerfile for `controller/` to download BuzzBlogApp from our modified version.
@@ -54,15 +56,15 @@ In local machine,
 ./tutorial_setup.sh \
     --username quyuyi \
     --private_ssh_key_path ~/.ssh/cloudlab \
-    --node_0 apt171.apt.emulab.net \
-    --node_1 apt169.apt.emulab.net \
-    --node_2 apt184.apt.emulab.net \
-    --node_3 apt188.apt.emulab.net
+    --node_0 apt176.apt.emulab.net \
+    --node_1 apt185.apt.emulab.net \
+    --node_2 apt188.apt.emulab.net \
+    --node_3 apt166.apt.emulab.net
 ```
 
 SSH to node-0,
 ```bash
-ssh quyuyi@apt171.apt.emulab.net
+ssh quyuyi@apt176.apt.emulab.net
 
 sudo docker run \
     --env description="My first BuzzBlog experiment." \
@@ -79,7 +81,7 @@ tar -czf $(ls . | grep BuzzBlogBenchmark_).tar.gz BuzzBlogBenchmark_*/*
 
 In local machine,
 ```
-scp quyuyi@apt171.apt.emulab.net:BuzzBlogBenchmark_*.tar.gz .
+scp quyuyi@apt176.apt.emulab.net:BuzzBlogBenchmark_*.tar.gz .
 ```
 
 
