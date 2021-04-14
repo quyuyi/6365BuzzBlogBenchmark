@@ -154,7 +154,10 @@ class BuzzBlogSession(ATLoad.Session):
   def retrieve_recommendation(self):
     random_keyword = random.choice(self._keywords)
     address = "/recommendation/" + random_keyword
-    self._request("get", address)
+    search_size = random.randint(10000, 80000)
+    return_size = random.randint(1, 1000)
+    self._request("get", address, 
+          params={"search_size": search_size, "return_size": return_size})
 
 if __name__ == "__main__":
   # Parse command-line arguments.
