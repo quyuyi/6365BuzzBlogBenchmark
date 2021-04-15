@@ -69,6 +69,7 @@ ssh quyuyi@apt107.apt.emulab.net
 
 vim workload.yml
 
+# Before run this, start recommendation database first to avoid empty db, see next step for details
 sudo docker run \
     --env description="My first BuzzBlog experiment." \
     --volume $(pwd):/usr/local/etc/BuzzBlogBenchmark \
@@ -78,9 +79,12 @@ sudo docker run \
 ```
 
 
-In local machine, load database to remote database container
+Load database to remote database container
 ```bash
-# Remember to change the address for the database server in recommendation.js
+# In node-3, start recommendation database first
+sudo docker run --name recommendation_database --publish 5436:27017 --volume /data/recommendation/db:/data/db --detach  --cpuset-cpus 0-5 --memory 6g quyuyi/buzzblog:database_v0.1
+
+# In local machine, remember to change the address for the database server in recommendation.js
 vim /home/quyuyi/Projects/6365BuzzBlogApp/app/recommendation/database/recommendation.js
 
 mongo apt097.apt.emulab.net:5436 /home/quyuyi/Projects/6365BuzzBlogApp/app/recommendation/database/recommendation.js
