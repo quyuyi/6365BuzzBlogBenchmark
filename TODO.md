@@ -56,15 +56,15 @@ In local machine,
 ./tutorial_setup.sh \
     --username quyuyi \
     --private_ssh_key_path ~/.ssh/cloudlab \
-    --node_0 apt176.apt.emulab.net \
-    --node_1 apt185.apt.emulab.net \
-    --node_2 apt188.apt.emulab.net \
-    --node_3 apt166.apt.emulab.net
+    --node_0 apt115.apt.emulab.net \
+    --node_1 apt096.apt.emulab.net \
+    --node_2 apt104.apt.emulab.net \
+    --node_3 apt110.apt.emulab.net
 ```
 
 SSH to node-0,
 ```bash
-ssh quyuyi@apt176.apt.emulab.net
+ssh quyuyi@apt115.apt.emulab.net
 
 sudo docker run \
     --env description="My first BuzzBlog experiment." \
@@ -74,6 +74,11 @@ sudo docker run \
     quyuyi/buzzblog:benchmarkcontroller_v0.1
 ```
 
+Load database
+```
+mongo apt110.apt.emulab.net:5436 /home/quyuyi/Projects/6365BuzzBlogApp/app/recommendation/database/recommendation.js
+```
+
 After the experiment is complete, in node-0,
 ```
 tar -czf $(ls . | grep BuzzBlogBenchmark_).tar.gz BuzzBlogBenchmark_*/*
@@ -81,7 +86,7 @@ tar -czf $(ls . | grep BuzzBlogBenchmark_).tar.gz BuzzBlogBenchmark_*/*
 
 In local machine,
 ```
-scp quyuyi@apt176.apt.emulab.net:BuzzBlogBenchmark_*.tar.gz .
+scp quyuyi@apt115.apt.emulab.net:BuzzBlogBenchmark_*.tar.gz .
 ```
 
 
