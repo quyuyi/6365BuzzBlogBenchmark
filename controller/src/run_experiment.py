@@ -345,6 +345,7 @@ def run():
   install_bpfcc()
   install_collectl()
   install_radvisor()
+  install_perf()
   pull_docker_images()
   copy_workload_configuration_file()
   render_configuration_templates()
