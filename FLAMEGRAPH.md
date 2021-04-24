@@ -60,10 +60,10 @@ mv perf.data node2perf.data
 sudo chmod a+rwx perf.data
 mv perf.data node3perf.data
 
-scp -i /Users/xiangcui/Desktop/YuDev/lxxcloudlab -o StrictHostKeyChecking=no yyu421@128.110.96.157:/users/yyu421/FlameGraph/node0perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node0perf.data
-scp -i /Users/xiangcui/Desktop/YuDev/lxxcloudlab -o StrictHostKeyChecking=no yyu421@128.110.96.149:/users/yyu421/FlameGraph/node1perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node1perf.data
-scp -i /Users/xiangcui/Desktop/YuDev/lxxcloudlab -o StrictHostKeyChecking=no yyu421@128.110.96.162:/users/yyu421/FlameGraph/node2perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node2perf.data
-scp -i /Users/xiangcui/Desktop/YuDev/lxxcloudlab -o StrictHostKeyChecking=no yyu421@128.110.96.147:/users/yyu421/FlameGraph/node3perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node3perf.data
+scp -i {ssh key} -o StrictHostKeyChecking=no yyu421@128.110.96.157:/users/yyu421/FlameGraph/node0perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node0perf.data
+scp -i {ssh key} -o StrictHostKeyChecking=no yyu421@128.110.96.149:/users/yyu421/FlameGraph/node1perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node1perf.data
+scp -i {ssh key} -o StrictHostKeyChecking=no yyu421@128.110.96.162:/users/yyu421/FlameGraph/node2perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node2perf.data
+scp -i {ssh key} -o StrictHostKeyChecking=no yyu421@128.110.96.147:/users/yyu421/FlameGraph/node3perf.data /Users/xiangcui/Desktop/YuDev/flamegraph/original-13min-tp20/node3perf.data
 ```
 
 # clean everything for service rerun
