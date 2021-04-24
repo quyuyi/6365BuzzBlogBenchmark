@@ -193,6 +193,14 @@ def install_radvisor(node_hostname, node_conf, ssh_client):
       "sudo cp /opt/radvisor/radvisor /usr/bin/".format(VERSION=VERSION))
 
 
+@nodes_with_monitor(".+-bpfcc")
+def install_perf(node_hostname, node_conf, ssh_client):
+  ssh_client.exec(
+      "sudo apt update && "
+      "sudo apt install linux-tools-common &&"
+      "sudo apt install linux-tools-5.4.0-67-generic")
+
+
 @nodes_with_container(".+")
 def pull_docker_images(node_hostname, node_conf, ssh_client):
   if DOCKER_HUB_USERNAME and DOCKER_HUB_PASSWORD:
@@ -337,6 +345,7 @@ def run():
   install_bpfcc()
   install_collectl()
   install_radvisor()
+  install_perf()
   pull_docker_images()
   copy_workload_configuration_file()
   render_configuration_templates()
